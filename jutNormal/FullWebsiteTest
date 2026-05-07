@@ -1,0 +1,15 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://demoblaze.com/index.html#');
+  await page.getByRole('link', { name: 'Sign up' }).click();
+  await page.getByRole('textbox', { name: 'Username:' }).click();
+  await page.getByRole('textbox', { name: 'Username:' }).fill('lokeh');
+  await page.getByRole('textbox', { name: 'Username:' }).press('ArrowLeft');
+  await page.getByRole('textbox', { name: 'Username:' }).press('ControlOrMeta+Shift+ArrowRight');
+  await page.getByRole('textbox', { name: 'Username:' }).fill('loke');
+  await page.getByRole('textbox', { name: 'Username:' }).click();
+  await page.getByRole('textbox', { name: 'Username:' }).fill('lokeqasqaqawxqaqaqaqa3cddewswswswwwwwwswwswwswsxxsxsxsxsssxsxwwsswswswwsw');
+  await page.getByText('Sign up ×').click();
+  await page.getByRole('dialog', { name: 'Sign up' }).getByLabel('Close').click();
+});
